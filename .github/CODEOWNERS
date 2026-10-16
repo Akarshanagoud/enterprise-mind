@@ -1,0 +1,37 @@
+# Code ownership (see CONTRIBUTORS.md). The last matching rule wins.
+# GitHub requests a review from the owner of every path a pull request touches.
+
+# Shared by default
+*                         @Akarshanagoud @virinchisai
+
+# AI & Data Engineering - Akarsha
+/src/emind/rag/           @Akarshanagoud
+/src/emind/text.py        @Akarshanagoud
+/src/emind/agent.py       @Akarshanagoud
+/src/emind/extraction.py  @Akarshanagoud
+/src/emind/etl/           @Akarshanagoud
+/src/emind/streaming.py   @Akarshanagoud
+/src/emind/analytics.py   @Akarshanagoud
+/scala/                   @Akarshanagoud
+/hive/                    @Akarshanagoud
+/sql/                     @Akarshanagoud
+/dags/                    @Akarshanagoud
+/java/                    @Akarshanagoud
+/scripts/                 @Akarshanagoud
+/data/sample_docs/        @Akarshanagoud
+
+# Security, Governance, Quality & Platform - Virinchi
+/src/emind/governance/    @virinchisai
+/src/emind/api.py         @virinchisai
+/src/emind/config.py      @virinchisai
+/src/emind/evaluation.py  @virinchisai
+/data/golden.jsonl        @virinchisai
+/tests/                   @virinchisai
+/src/emind/static/        @virinchisai
+/Dockerfile               @virinchisai
+/docker-compose.yml       @virinchisai
+/deploy/                  @virinchisai
+/.github/                 @virinchisai
+
+# Ownership rules themselves need both maintainers
+/.github/CODEOWNERS       @Akarshanagoud @virinchisai

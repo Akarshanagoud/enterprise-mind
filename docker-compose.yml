@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      EMIND_API_KEYS: "${EMIND_API_KEYS:?set EMIND_API_KEYS=key:role:user,...}"
+      EMIND_LLM: "${EMIND_LLM:-extractive}"
+      OLLAMA_URL: "http://ollama:11434"
+    volumes: ["emind-data:/var/emind"]
+  ollama:            # optional free local LLM:  docker compose --profile llm up
+    image: ollama/ollama
+    profiles: ["llm"]
+    volumes: ["ollama:/root/.ollama"]
+volumes:
+  emind-data:
+  ollama:

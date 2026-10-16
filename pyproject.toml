@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enterprise-mind"
+version = "1.0.0"
+description = "Governed, local-first GenAI + data engineering platform (no API keys required)"
+authors = [{ name = "Akarsha Namachanpally" }, { name = "Virinchi Sai" }]
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.110", "uvicorn>=0.27", "pydantic>=2.5", "httpx>=0.26",
+  "numpy>=1.24", "pandas>=2.0", "scikit-learn>=1.3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff"]
+vectors = ["faiss-cpu", "sentence-transformers"]
+spark = ["pyspark>=3.5"]
+finetune = ["torch", "transformers", "peft", "datasets", "accelerate", "bitsandbytes"]
+pdf = ["pypdf"]
+streaming = ["kafka-python"]
+orchestration = ["apache-airflow"]
+
+[project.scripts]
+emind = "emind.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+emind = ["static/*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.lint.flake8-bugbear]
+# FastAPI's dependency markers are meant to be used as default arguments
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Header", "fastapi.Query", "fastapi.Body"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
